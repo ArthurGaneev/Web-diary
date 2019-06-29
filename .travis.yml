@@ -1,0 +1,16 @@
+language: java
+jdk: oraclejdk 11
+script: ./mvnw -e verify
+after_success:
+  - bash <(curl -s http://codecov.io/bash)
+deploy:
+  provider: heroku
+  api_key: $HEROKU_KEY
+  app: web-diary
+
+notifications:
+  email:
+    recipients:
+      - ganeev94@list.ru
+    on_failure: change
+    on_success: change

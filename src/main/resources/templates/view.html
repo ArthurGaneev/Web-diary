@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <head data-th-replace="fragments/layout"></head>
+</head>
+<body>
+
+
+<div class="card w-4">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div class="card bg-light mb-3" style="max-width: 70rem;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="card w-30">
+                                    <div class="container">
+                                        <div class="alert alert-light">
+                                            <div class="row">
+                                                <div class="col s12">
+                                                    <div class="list-group-item list-group-item-warning">
+                                                        <p aria-current="page">
+                                                        <h1>[[${item.name}]]</h1></p>
+                                                    </div>
+                                                    <div class="list-group-item list-group-item-secondary" role="alert">
+                                                        <p><strong><h3>[[${item.duration}]] мин </h3></strong></p>
+                                                    </div>
+                                                    <div class="list-group-item list-group-item-primary" role="alert">
+                                                        <h3><strong><p>[[${item.description}]]</p></strong></h3>
+                                                    </div>
+                                                    <div class="rounded float-right" style="width: 30rem;">
+                                                        <figure class="figure">
+                                                            <img data-th-src="@{/media/{path}(path=${item.path})}"
+                                                                 class="rounded mx-auto d-block" width="480"
+                                                                 height="280">
+                                                        </figure>
+                                                    </div>
+
+                                                    <figure class="figure">
+                                                        <div class="form-row">
+                                                            <div class="list-group-item list-group-item-success">
+                                                                <p><strong><h4>Количество выполненных событий:
+                                                                    [[${item.likes}]] </h4></strong></p>
+                                                                <div class="btn-group" role="group"
+                                                                     aria-label="Basic example">
+                                                                    <form method="post"
+                                                                          data-th-action="@{/{id}/like(id=${item.id})}">
+                                                                        <button type="submit" class="btn btn-success">
+                                                                            <strong>Сделано</strong></button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </figure>
+                                                    <figure class="figure">
+                                                        <div class="form-row">
+                                                            <div class="list-group-item list-group-item-danger">
+                                                                <p><strong><h4>Количество невыполненных событий:
+                                                                    [[${item.dislikes}]]</h4></strong></p>
+                                                                <div class="btn-group" role="group"
+                                                                     aria-label="Basic example">
+                                                                    <form method="post"
+                                                                          data-th-action="@{/{id}/dislike(id=${item.id})}">
+                                                                        <button type="submit" class="btn btn-danger">
+                                                                            <strong>Не сделано</strong></button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </figure>
+                                                    <a data-th-href="@{/{id}/edit(id=${item.id})}" class="btn btn-warning"><strong>Редактировать</strong></a>
+                                                    <a data-th-href="@{/{id}/remove(id=${item.id})}"
+                                                       class="btn btn-warning"><strong>Удалить</strong></a>
+                                                    <a data-th-href="@{/}">
+                                                        <button class="btn btn-warning" type="submit"><strong>Назад</strong></button>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

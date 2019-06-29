@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <head data-th-replace="fragments/layout"></head>
+</head>
+<body>
+
+
+<div class="card w-4">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div class="card bg-light mb-3" style="max-width: 60rem;">
+                    <p data-th-if="${item.id != 0}">
+                        <img data-th-src="@{/media/{path}(path=${item.path})}">
+                    </p>
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="formGroupExampleInput"><strong><h4>Событие:</h4></strong></label>
+                            <input type="text" class="form-control" id="formGroupExampleInput" name="name"
+                                   data-th-value="${item.name}" placeholder="Имя события">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2"><strong><h4>Продолжительность,мин:</h4></strong></label>
+                            <input type="text" class="form-control" id="formGroupExampleInput2" name="duration"
+                                   data-th-value="${item.duration}" placeholder="Прдолжительность события">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput3"><strong><h4>Описание:</h4></strong></label>
+                            <input type="text" class="form-control" id="formGroupExampleInput3" name="description"
+                                   data-th-value="${item.description}" placeholder="Описание события">
+                            </input>
+                        </div>
+                        <input name="file" type="file" class="btn btn-warning">
+                        <button class="btn btn-success">Сохранить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
